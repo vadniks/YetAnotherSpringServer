@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>View valuable</title>
+        <script src="http://localhost:8082/helper"></script>
+    </head>
+    <body style="display: flex; flex-direction: column">
+        <h1 th:text="${valuable['name']}"></h1>
+        <span th:text="${valuable['description']}"></span>
+        <span th:text="${valuable['cost']}"></span>
+        <script th:if="${_isDark}">setAllToDark()</script>
+    </body>
+</html>

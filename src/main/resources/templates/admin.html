@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Administrate</title>
+        <style>
+            #list {
+                display: flex;
+                flex-direction: column
+            }
+            #item {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            #item:hover { background-color: cyan; }
+            span { margin: 5px; }
+        </style>
+        <script src="http://localhost:8082/helper"></script>
+    </head>
+    <body>
+        <h1>List of users</h1>
+        <div id="list" th:each="user: ${users}">
+            <div id="item">
+                <span th:text="${user['id']}"></span>
+                <span th:text="${user['name']}"></span>
+                <span th:text="${user['password']}"></span>
+            </div>
+        </div>
+        <script th:if="${_isDark}">setAllToDark()</script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+services:
+  webapp:
+    build: app
+    ports:
+      - 8081:8081
+    container_name: demoweb
+  nginx:
+    container_name: demo_nginx
+    build: nginx
+    volumes:
+      - ./nginx/src:/usr/share/nginx/html-static
+    ports:
+      - 8082:8082
+  db:
+    image: mysql
+    container_name: demo_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  redis:
+    container_name: demo_redis
+    image: redis
+    ports:
+      - 6379:6379
+volumes:
+  db:

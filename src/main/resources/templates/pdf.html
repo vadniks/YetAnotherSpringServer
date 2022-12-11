@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pdf file upload</title>
+        <script src="http://localhost:8082/helper"></script>
+    </head>
+    <body>
+        <form method="POST" enctype="multipart/form-data" action="/upload">
+            <input type="file" name="file"/>
+            <input type="submit" value="Upload"/>
+        </form>
+        <button onclick="window.location.replace('/download')">Download</button>
+        <script th:if="${_isDark}">setAllToDark()</script>
+    </body>
+</html>

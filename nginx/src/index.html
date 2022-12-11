@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pawnshop</title>
+        <script type="module" src="helper"></script>
+        <script>window.onload = () => { if (isDark()) setAllToDark() }</script>
+    </head>
+    <body>
+        <h1>Pawnshop</h1><br>
+        <button onclick="redir('/catalogue')">Catalogue</button>
+        <button onclick="redir('/about')">About</button>
+        <button onclick="redir('/admin')">Administrate</button>
+        <button onclick="redir('/pdf')">PDF</button>
+        <button onclick="redir('/stats')">Statistics</button>
+    </body>
+</html>

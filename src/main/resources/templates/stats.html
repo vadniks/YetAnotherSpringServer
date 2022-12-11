@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection, HtmlRequiredAltAttribute, RequiredAttributes -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Statistics</title>
+        <style>img { margin: 10px }</style>
+        <script src="http://localhost:8082/helper"></script>
+    </head>
+    <body>
+        <h1>Statistics</h1>
+        <div style="display: flex; flex-direction: column">
+            <img th:src="${graph1}">
+            <img th:src="${graph2}">
+            <img th:src="${graph3}">
+        </div>
+        <script th:if="${_isDark}">setAllToDark()</script>
+    </body>
+</html>

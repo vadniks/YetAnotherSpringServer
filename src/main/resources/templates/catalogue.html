@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Catalogue</title>
+        <style>
+            #list {
+                display: flex;
+                flex-direction: column
+            }
+            #item {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            #item:hover { background-color: cyan; }
+            span { margin: 5px; }
+        </style>
+        <script src="http://localhost:8082/helper"></script>
+    </head>
+    <body>
+        <h1>Catalogue</h1>
+        <button onclick="
+            fetch('/changeTheme', {method: 'POST'}).then(_ => window.location.reload())
+        ">Change theme</button>
+        <div id="list" th:each="valuable: ${valuables}">
+            <div id="item" th:onclick="redir('/view?id=' + [[${valuable['id']}]])">
+                <span th:text="${valuable['name']}"></span>
+                <span th:text="${valuable['cost']}"></span>
+            </div>
+        </div>
+        <script th:if="${_isDark}">setAllToDark()</script>
+    </body>
+</html>
